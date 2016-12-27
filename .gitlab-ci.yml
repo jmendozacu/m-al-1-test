@@ -1,15 +1,15 @@
 language: php
-php:
-  - 5.3
-  - 5.4
-  - 5.5
-  - 5.6
-  - hhvm
-matrix:
-  allow_failures:
-  - php: 5.6
-  - php: hhvm
-env:
+image: 
+    php:5.3:
+    php:5.4:
+    php:5.5:
+    php:5.6:
+    hhvm:
+# matrix:
+#   allow_failures:
+#   - php: 5.6
+#   - php: hhvm
+# env:
 #  global:
 #    - MAGENTO_DB_ALLOWSAME=1
 #    - SKIP_CLEANUP=1
@@ -20,5 +20,5 @@ notifications:
   email:
     recipients:
       - erlis@sherodesigns.com
-    on_success: always
-    on_failure: always
+    # on_success: always
+    # on_failure: always
