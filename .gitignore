@@ -1,0 +1,72 @@
+# Note, using a slash at the beginning of a file path
+# Will cause git to ignore files relative to
+# the directory that the gitignore file is located in
+# Various IDEs & OS files
+*.sublime-workspace
+*.tmproj
+*.bak
+*.swp
+*~.nib
+.DS_Store
+.DS_STORE
+__MACOSX
+.idea
+nbproject/*
+.project
+.buildpath
+.thumbs
+Thumbs.db
+build.properties
+.settings
+_notes/*
+*.sublime-project
+.vim/
+
+# Backups
+/*.sql
+/*.tar
+/*.gz
+/*.zip
+
+# Avoid common in place backup files
+*__
+*_
+*.old
+*_old
+*--
+*~
+
+# Magento Directories/Files
+/cgi-bin/
+/downloader/.cache/
+/mage
+/media/*
+/media
+/magento
+var/*
+pkginfo/
+LICENSE.html
+/.phpstorm.meta.php
+/*.txt
+/google*
+/install.php
+/maintenance.*
+/*.xml
+/*.sample
+
+# Specific files
+PATCH*.sh
+app/etc/*.xml
+!app/etc/local.xml.template
+!app/etc/local.xml.additional
+!app/etc/config.xml
+/.user.ini
+/php.ini
+.ftpaccess
+/.htpasswd
+
+# Custom files/folders
+/favicon.ico
+/.ftpquota
+/downloader/cache.cfg
+/downloader/connect.cfg
