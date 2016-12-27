@@ -2,6 +2,3 @@
 getVersion:
   script:
     - grep -A6 'static function getVersionInfo' app/Mage.php
-testCp:
-  script:
-    - cp .htaccess ~/htaccess_copy
