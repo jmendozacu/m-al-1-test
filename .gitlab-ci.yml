@@ -1,4 +1,4 @@
-language: php
+# language: php
 image: 
     php:5.3:
     php:5.4:
@@ -16,9 +16,9 @@ image:
 getVersion:
   script:
     - grep -A6 'static function getVersionInfo' app/Mage.php
-notifications:
-  email:
-    recipients:
-      - erlis@sherodesigns.com
+# notifications:
+#   email:
+#     recipients:
+#       - erlis@sherodesigns.com
     # on_success: always
     # on_failure: always
