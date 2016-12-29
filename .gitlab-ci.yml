@@ -1,5 +1,7 @@
 # image:php:5.5:
 getVersion:
   script:
-    - grep -A6 'static function getVersionInfo' app/Mage.php
+    - pwd
+    - echo $CI_SERVER
+    - ssh corfurea@sip4-600.nexcess.net
     - pwd
