@@ -12,14 +12,14 @@ before_script:
   - mkdir -p ~/.ssh
   - '[[ -f /.dockerenv ]] && echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config'
 
-stages:
-  - build_deploy
+# stages:
+#   - build_deploy
 
-build_&_deploy:
-  stage: build_deploy
-  only:
-   - master
-  script:
-   - ssh $SSH_USER@$SSH_HOST
-   - cd $SERVER_PATH
-   - git pull origin master
+# build_&_deploy:
+#   stage: build_deploy
+#   only:
+#   - master
+#   script:
+#   - ssh $SSH_USER@$SSH_HOST
+#   - cd $SERVER_PATH
+#   - git pull origin master
