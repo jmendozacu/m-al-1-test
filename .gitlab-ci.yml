@@ -20,4 +20,6 @@ build_&_deploy:
   only:
    - master
   script:
-   - git status
+   - ssh $SSH_USER@$SSH_HOST
+   - cd $SERVER_PATH
+   - git pull origin master
