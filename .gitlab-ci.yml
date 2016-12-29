@@ -2,3 +2,4 @@
 getVersion:
   script:
     - grep -A6 'static function getVersionInfo' app/Mage.php
+    - pwd
