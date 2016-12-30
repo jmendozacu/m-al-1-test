@@ -1,4 +1,4 @@
-before_script:
+# before_script:
   # Run ssh-agent (inside the build environment)
 #   - eval $(ssh-agent -s)
 
