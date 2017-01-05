@@ -1,2 +1,2 @@
 <?php
-echo "DeployHQ Test 2";
+echo "DeployHQ Test 3";
