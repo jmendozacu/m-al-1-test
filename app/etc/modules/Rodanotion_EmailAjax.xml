@@ -1,0 +1,9 @@
+<?xml version="1.0" ?>
+<config>
+    <models>
+        <Rodanotion_EmailAjax>
+            <active>false</active>
+            <codePool>local</codePool>
+        </Rodanotion_EmailAjax>
+    </models>
+</config>

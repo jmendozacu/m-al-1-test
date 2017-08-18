@@ -1,0 +1,20 @@
+<?php
+/** @var Mage_Page_Block_Html_Topmenu $this */
+?>
+<nav id="mobile-nav" class="visible-xs visible-sm">
+    <ul>
+        <?php echo $this->getChildHtml('menu_top_links') ?>
+        <li><a href="<?php echo Mage::getUrl('customer/account'); ?>" title="<?php echo $this->__('Painful Pleasure Inc : My Account'); ?>"><?php echo $this->__('Account'); ?></a></li>
+        <li><a href="<?php echo Mage::getUrl('checkout/cart'); ?>" title="<?php echo $this->__('Painful Pleasure Inc : Cart'); ?>"><?php echo $this->__('Cart'); ?></a></li>
+        <?php $community_links = $this->getChildHtml('header_community_links'); ?>
+        <?php if ($community_links) { ?>
+        <li>
+            <a><?php echo $this->__('Community'); ?></a>
+            <ul>
+                <?php echo $community_links ?>
+            </ul>
+        </li>
+        <?php } ?>
+        <?php echo $this->getHtml('level-top') ?>
+    </ul>
+</nav>

@@ -1,0 +1,18 @@
+<layout>
+    <customer_account_create>
+        <reference name='customer_form_register'>
+            <action method='setTemplate'>
+                <template>rodanotionemailajax/customer/form/register.phtml</template>
+            </action>
+        </reference>
+
+        <reference name="head">
+            <action method="addItem">
+                <type>skin_js</type>
+                <name>js/checkemailexists.js</name>
+                <params/>
+                <if/>
+            </action>
+        </reference>
+    </customer_account_create>
+</layout>

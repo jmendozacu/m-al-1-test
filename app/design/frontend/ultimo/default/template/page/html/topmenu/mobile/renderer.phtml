@@ -1,0 +1,90 @@
+<?php
+
+/**
+ * Magento Enterprise Edition
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Magento Enterprise Edition End User License Agreement
+ * that is bundled with this package in the file LICENSE_EE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://www.magento.com/license/enterprise-edition
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magento.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magento.com for more information.
+ *
+ * @category    design
+ * @package     rwd_default
+ * @copyright Copyright (c) 2006-2015 X.commerce, Inc. (http://www.magento.com)
+ * @license http://www.magento.com/license/enterprise-edition
+ */
+/** @var Mage_Page_Block_Html_Topmenu_Renderer $this */
+/** @var Varien_Data_Tree_Node $menuTree */
+/** @var string $childrenWrapClass */
+$html = '';
+
+$children = $menuTree->getChildren();
+$parentLevel = $menuTree->getLevel();
+$childLevel = is_null($parentLevel) ? 0 : $parentLevel + 1;
+
+$counter = 1;
+$childrenCount = $children->count();
+$columnCount = max(ceil(($childrenCount + 1) / 3), 8);
+$maxColumns = 6;
+
+$childrenWrapClass = 'dropdown-menu';
+
+$parentPositionClass = $menuTree->getPositionClass();
+$itemPositionClassPrefix = $parentPositionClass ? $parentPositionClass . '-' : 'nav-';
+foreach ($children as $child) {
+
+    $child->setLevel($childLevel);
+    $child->setIsFirst($counter == 1);
+    $child->setIsLast($counter == $childrenCount);
+    $child->setPositionClass($itemPositionClassPrefix . $counter);
+
+    $outermostClassCode = 'level' . $childLevel;
+    $_hasChildren = ($child->hasChildren()) ? 'has-children' : '';
+        
+    if ($childLevel == 0 && $counter > $maxColumns && $childrenCount > $maxColumns+1) {
+        if ($counter == $maxColumns+1) {
+            $html .= '<li>';
+            $html .= '<a href="#">' . $this->__("More") . '</a>';
+            $html .= '<ul>';
+        }
+
+        $html .= '<li><a href="' . $child->getUrl() . '" >' . $this->escapeHtml($this->__($child->getName())) . '</a></li>';
+    } else {
+
+        $html .= '<li><a href="' . $child->getUrl() . '">' . $this->escapeHtml($this->__($child->getName())) . '</a>';
+
+        $nextChildLevel = $childLevel + 1;
+        if (!empty($_hasChildren) && $nextChildLevel < 2) {
+            $html .= '<ul>';
+            $html .= '<li><a href="' . $child->getUrl() . '">' . $this->__('View All') . ' ' . $this->escapeHtml($this->__($child->getName())) . '</a></li>';
+            $html .= $this->render($child, $childrenWrapClass);
+            $html .= '</ul>';
+        }
+
+        $html .= '</li>';
+    }
+
+    $counter++;
+}
+
+if ($childLevel == 0) {
+    if ($childrenCount > $maxColumns+1)  {
+        $html .= '</ul>';
+        $html .= '</li>';
+    }
+    
+    $html .= '<li class="level0 nav-all-products"><a href="'.$this->getUrl('all-products').'" class="level0 ">' . $this->__("All Products") . '</a></li>';
+    $html .= '<li class="level0 nav-new-products"><a href="'.$this->getUrl('new-products').'" class="level0 ">' . $this->__("New Products") . '</a></li>';
+}
+return $html;

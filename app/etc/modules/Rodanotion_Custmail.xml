@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Rodanotion_Custmail>
+            <active>true</active>
+            <codePool>local</codePool>
+        </Rodanotion_Custmail>
+    </modules>
+</config>

@@ -1,0 +1,36 @@
+<?xml version="1.0" ?>
+
+<config>
+    <modules>
+        <Rodanotion_EmailAjax>
+            <version>0.1.0</version>
+        </Rodanotion_EmailAjax>
+    </modules>
+
+    <global>
+        <helpers>
+            <rodanotion_emailajax>
+                <class>Rodanotion_EmailAjax_Helper</class>
+            </rodanotion_emailajax>
+        </helpers>
+    </global>
+
+    <frontend>
+        <layout>
+            <updates>
+                <rodanotion_emailajax>
+                    <file>rodanotion_emailajax.xml</file>
+                </rodanotion_emailajax>
+            </updates>
+        </layout>
+        <routers>
+            <rodanotion_emailajax>
+                <use>standard</use>
+                <args>
+                    <module>Rodanotion_EmailAjax</module>
+                    <frontName>emailajax</frontName>
+                </args>
+            </rodanotion_emailajax>
+        </routers>
+    </frontend>
+</config>
