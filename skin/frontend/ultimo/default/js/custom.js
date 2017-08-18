@@ -9,9 +9,7 @@
                     navigationMenu();
                     slidingMenu();
                     topNavMenu();
-                    bxSliderInit();
                     gridBoxClicable();
-                    colorboxMedia();
                 },
 
                 disableBootstrapConflicts = function () {
@@ -125,34 +123,10 @@
                     });
                 },
 
-                bxSliderInit = function() {
-                    $('#slider').bxSlider({
-                        pager: ($('#slider').length > 1) ? true: false,
-                    });
-
-                    $('.product-view #block-related').bxSlider({
-                        minSlides: 2,
-                        maxSlides: 6,
-                        slideWidth: 170,
-                        slideMargin: 10,
-                        pager: false
-                    });
-                    $('#crosssell-products-list').bxSlider({
-                        minSlides: 2,
-                        maxSlides: 3,
-                        slideWidth: 190,
-                        slideMargin: 10,
-                        pager: false
-                    });
-                },
-
                 gridBoxClicable = function() {
                     $('.products-grid li').click(function(){
                         window.location=$(this).find('a').attr('href');return false;
                     });
-                },
-                colorboxMedia = function () {
-                    $('.product-image-zoom .product-image-gallery a').colorbox({rel:'group1'});
                 };
 
 
